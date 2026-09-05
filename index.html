@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clay Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.166.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.166.1/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+
+      <section id="startScreen" class="screen active">
+        <div class="start-panel">
+          <p class="eyebrow">Original wheel-thrown pottery workshop</p>
+          <h1>Clay Studio</h1>
+          <p class="intro">Shape, dry, fire, paint, glaze, and display a handmade ceramic piece.</p>
+          <div class="start-actions">
+            <button id="newCreationBtn" class="primary">New Creation</button>
+            <button id="galleryBtn">Gallery</button>
+            <button id="tutorialBtn">Tutorial</button>
+          </div>
+        </div>
+      </section>
+
+      <header class="topbar">
+        <div>
+          <strong>Clay Studio</strong>
+          <span id="challengeText">Challenge: Create a wide bowl</span>
+        </div>
+        <div class="top-actions">
+          <button id="saveBtn" title="Save current design">Save</button>
+          <button id="exportBtn" title="Export PNG">Export</button>
+          <button id="fullscreenBtn" title="Fullscreen">Full</button>
+          <button id="muteBtn" title="Mute">Sound</button>
+          <button id="pauseBtn" title="Pause">Pause</button>
+        </div>
+      </header>
+
+      <aside class="toolbar" aria-label="Pottery tools">
+        <button data-tool="shape" class="tool active" title="Shape">Shape</button>
+        <button data-tool="smooth" class="tool" title="Smooth">Smooth</button>
+        <button data-tool="pinch" class="tool" title="Pinch">Pinch</button>
+        <button data-tool="expand" class="tool" title="Expand">Expand</button>
+        <button data-tool="compress" class="tool" title="Compress">Compress</button>
+        <button data-tool="cut" class="tool" title="Cut rim">Cut rim</button>
+        <button data-tool="paint" class="tool" title="Paint patterns">Paint</button>
+        <button data-tool="eraser" class="tool" title="Erase paint">Eraser</button>
+        <button id="undoBtn" title="Undo">Undo</button>
+        <button id="redoBtn" title="Redo">Redo</button>
+        <button id="resetBtn" title="Reset">Reset</button>
+      </aside>
+
+      <main class="hud">
+        <nav id="stageProgress" class="stages"></nav>
+        <section class="panel controls-panel">
+          <label>Brush size <input id="brushSize" type="range" min="0.12" max="0.75" step="0.01" value="0.32" /></label>
+          <label>Strength <input id="brushStrength" type="range" min="0.05" max="1" step="0.01" value="0.34" /></label>
+          <div class="stage-actions">
+            <button id="prevStageBtn">Back</button>
+            <button id="nextStageBtn" class="primary">Next Stage</button>
+          </div>
+        </section>
+
+        <section id="paintPanel" class="panel paint-panel hidden">
+          <strong>Paint patterns</strong>
+          <label>Custom color <input id="customColor" type="color" value="#6e8fa3" /></label>
+          <div class="swatches" id="colorPalette"></div>
+          <div class="brushes" id="decorBrushes"></div>
+          <button id="baseColorBtn">Set base color</button>
+          <select id="glazeSelect">
+            <option value="matte">Matte glaze</option>
+            <option value="glossy">Glossy glaze</option>
+            <option value="metallic">Metallic glaze</option>
+            <option value="crackle">Crackle glaze</option>
+          </select>
+          <label><input id="insidePaint" type="checkbox" /> Paint inside</label>
+          <button id="applyGlazeBtn">Preview glaze</button>
+        </section>
+
+        <section id="scorePanel" class="panel score-panel hidden"></section>
+      </main>
+
+      <dialog id="tutorialDialog">
+        <h2>First piece</h2>
+        <ol>
+          <li>Drag across the spinning clay. Horizontal movement widens or narrows the active ring.</li>
+          <li>Drag up to pull the clay taller. Drag down to compress it.</li>
+          <li>Use Smooth to soften hard transitions, then dry and fire the pot.</li>
+          <li>Paint with colors and decorative brushes, choose a glaze, then display it.</li>
+        </ol>
+        <button id="closeTutorialBtn" class="primary">Start</button>
+      </dialog>
+
+      <dialog id="galleryDialog">
+        <h2>Gallery</h2>
+        <div id="galleryGrid" class="gallery-grid"></div>
+        <button id="closeGalleryBtn">Close</button>
+      </dialog>
+
+      <dialog id="pauseDialog">
+        <h2>Settings</h2>
+        <label><input id="particlesToggle" type="checkbox" checked /> Dust in sunlight</label>
+        <label><input id="musicToggle" type="checkbox" checked /> Background music</label>
+        <button id="closePauseBtn" class="primary">Resume</button>
+      </dialog>
+
+      <div id="toast" class="toast"></div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
