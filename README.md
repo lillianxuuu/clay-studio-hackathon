@@ -52,7 +52,7 @@ Then open:
 http://localhost:5173
 ```
 
-The project vendors its Three.js module in `vendor/three.module.js` and uses a local import map. The browser may still need network access if an optional remote module or font is used by the current build.
+The project uses an import map to load Three.js from the official `unpkg` distribution, so the browser needs network access when the app starts. No build step is required.
 
 ## Controls
 
