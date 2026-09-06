@@ -1,6 +1,6 @@
 # Clay Studio — A Spatial Pottery Challenge
 
-Clay Studio is a browser-based interactive 3D pottery experience. This hackathon edition focuses on one complete creative loop: shape a digital clay form into a wide bowl, move it through the making process, and finish with a displayable ceramic artifact.
+Clay Studio is a browser-based interactive 3D pottery experience inspired by the simple joy of making something by hand. You shape a piece of clay, take it through a small pottery workflow, and end with an artifact that feels like your own.
 
 ## Track
 
@@ -8,34 +8,25 @@ Clay Studio is a browser-based interactive 3D pottery experience. This hackathon
 
 The project is a real-time creative 3D tool with a memorable visual result. It turns a pottery workflow into an interactive spatial experience that works in a browser and can be extended with an immersive / VR presentation mode.
 
-## The two-minute demo loop
+## The two minute demo loop
 
-1. Start a new creation.
-2. Directly drag the clay to shape the rim and body.
-3. Complete the **Create a Wide Bowl** challenge.
-4. Move through drying, firing, painting, and glazing.
-5. Display the finished piece in the final 3D presentation state.
+1. Start a new piece.
+2. Drag directly on the rotating clay form and watch it respond to your hand.
+3. Shape the form to match the current challenge.
+4. Move the piece through drying, firing, painting, and glazing.
+5. Display the finished piece and start again if you want to try a different form.
 
-**Primary interaction:** direct manipulation of the clay mesh.
+**Primary interaction:** directly shaping the clay with the cursor.
 
-**Visible outcome:** a finished, displayable wide bowl with a changed shape, material, and presentation state.
+**Visible outcome:** a finished ceramic piece with a shape, color, and material that changed through your decisions.
 
-The live demo intentionally follows one reliable path. The other tools remain available for exploration, but the presentation should focus on one interaction and one visible outcome.
+The demo is intentionally small. The important moment is seeing the clay change as you work on it, then carrying that piece through the rest of the process. The other tools are there if someone wants to keep experimenting.
 
 ## What makes it spatial
 
 The clay is a real-time rotationally symmetric 3D mesh made from adjustable horizontal vertex rings. User input changes the mesh in the browser, while the camera, wheel, lighting, particles, materials, and display state create a small explorable 3D world.
 
 The final display can be presented as an immersive / WebXR layer when the presentation device supports it. When WebXR is unavailable, the existing mouse-orbit camera remains the fallback so the core experience is still demonstrable.
-
-## Technology roles
-
-- **Custom JavaScript + Three.js/WebGL:** real-time clay deformation, camera interaction, pottery stages, scoring, UI state, and resettable demo flow.
-- **World Labs:** spatial presentation reference and inspiration for treating a 3D environment as something to explore. The core app does not depend on a World Labs viewer loading successfully.
-- **Tripo:** optional source for supporting 3D assets in a future or extended display scene. The pottery interaction itself is custom-built in this repository.
-- **Mint / Convex:** not required for the focused single-player prototype. They are possible extensions for generated asset packs, shared galleries, or synchronized multiplayer state.
-
-The project distinguishes between runtime dependencies and tools that informed the creative direction. It does not claim that one external service generated the entire application.
 
 ## Run locally
 
@@ -62,26 +53,25 @@ The project uses an import map to load Three.js from the official `unpkg` distri
 - Downward drag compresses the form.
 - Drag outside the clay to orbit the camera.
 - Mouse wheel zooms.
-- Use **Expand** to make the wide-bowl challenge legible in the live demo.
+- Use the shaping tools to make the current challenge easier to demonstrate.
 - Use **Smooth**, **Pinch**, **Compress**, and **Cut rim** for optional refinement.
 - Use **Undo**, **Redo**, and **Reset** to keep the demo recoverable.
 
 ## Demo checklist
 
-- [ ] State the problem: 3D creation tools often show an output without making the making process tangible.
-- [ ] State the interaction: directly shape a clay mesh into a wide bowl.
+- [ ] State the idea: digital tools can show the finished object, but the joy is often in the making.
+- [ ] State the interaction: directly shape a clay mesh and see it respond in real time.
 - [ ] Show the working experience before explaining the implementation.
 - [ ] Advance the piece through the making stages.
 - [ ] Stop on the final display state with the artifact clearly visible.
 - [ ] Explain that custom WebGL handles the interaction and stage state.
-- [ ] Explain any World Labs, Tripo, Mint, or Convex role accurately and only if it is actually used in the submitted build.
 - [ ] Keep **New Creation** and **Reset** visible as recovery paths.
 - [ ] Test on the presentation device.
 - [ ] Save a short screen recording as a fallback.
 
 ## Suggested pitch
 
-> Clay Studio turns 3D pottery into a direct, spatial interaction. The user shapes a digital clay form into a wide bowl, takes it through a simple making process, and ends with a finished artifact they can display. The real-time deformation and stage system are custom-built in WebGL; the project can be extended with World Labs-inspired spatial presentation without making the core demo depend on it.
+> Clay Studio is a small digital pottery studio built around the joy of making. You shape clay directly with your cursor, take it through drying, firing, painting, and glazing, and finish with an artifact that came from your own decisions. It is less about getting a perfect result and more about enjoying the process of making it.
 
 ## Existing prototype and hackathon edition
 
